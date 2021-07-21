@@ -119,11 +119,11 @@ footer a:hover .brand {
 
 @media (max-width: 890px) {
     nav a {
-        width: 49.5%;
+        width: 49.7%;
     }
     
     nav a.full {
-        width: 99.7%;
+        width: 99.9%;
     }
     
     .project {
