@@ -10,7 +10,7 @@ fetch(url)
 .then(data => {
     let projects = document.getElementById("projects");
     data.forEach(repo => {
-        if (!repo.fork) {
+        if (!repo.fork && !repo.archived) {
             let anchor = document.createElement("a");
             anchor.href = repo.html_url;
 
@@ -18,7 +18,7 @@ fetch(url)
             project.classList.add("project");
 
             let projectName = document.createElement("h2");
-            projectName.innerHTML = repo.full_name;
+            projectName.innerHTML = repo.full_name + " (" + repo.watchers + ")";
             projectName.classList.add("project-name");
             project.appendChild(projectName);
 
