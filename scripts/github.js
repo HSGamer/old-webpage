@@ -18,7 +18,7 @@ fetch(url)
             project.classList.add("project");
 
             let projectName = document.createElement("h2");
-            projectName.innerHTML = repo.full_name + " (" + repo.watchers + ")";
+            projectName.innerHTML = repo.full_name + " (" + repo.stargazers_count + ")";
             projectName.classList.add("project-name");
             project.appendChild(projectName);
 
