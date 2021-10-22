@@ -86,6 +86,7 @@ section {
 
 .project:hover {
 	cursor: pointer;
+	border: 1px solid lightgray;
 }
 
 .project-image {
