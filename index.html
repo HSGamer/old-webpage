@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HSGamer</title>
-        <link href="./stylesheets/mainsheet.css" type="text/css" rel="stylesheet">
-    </head>
-    
-    <body>
-        <header>
-            <img src="./images/logo.png" alt="HSGamer Logo">
-            <div title="Webpage Title">HSGamer</div>
-        </header>
 
-        <nav id="navbar">
-            <a href="javascript:scroll('info');">info</a>
-            <a href="javascript:scroll('badge');">badge</a>
-            <a class="full" href="javascript:scroll('project');">project</a>
-        </nav>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSGamer</title>
+    <link href="./stylesheets/mainsheet.css" type="text/css" rel="stylesheet">
+</head>
 
-        <main>
-            <section id="info">
-                <h1 class="section-heading">info</h1>
-                <p class="info-paragraph">I'm a university student, and a free-time Spigot plugin developer. I'm interested in brainstorming ideas on my bicycle and coding weird things. Currently learning everything on programming.</p>
-            </section>
+<body>
+    <header>
+        <img src="./images/logo.png" alt="HSGamer Logo">
+        <div title="Webpage Title">HSGamer</div>
+    </header>
 
-            <section id="badge">
-                <h1 class="section-heading">badge</h1>
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hsgamer&theme=white&layout=compact&langs_count=6" alt="languages" />
-                <img src="https://github-readme-stats.vercel.app/api?username=hsgamer&hide=issues&theme=white" alt="stats" />
-            </section>
+    <nav id="navbar">
+        <a href="javascript:scroll('info');">info</a>
+        <a href="javascript:scroll('badge');">badge</a>
+        <a class="full" href="javascript:scroll('project');">project</a>
+    </nav>
 
-            <section id="project">
-                <h1 class="section-heading">project</h1>
-            </section>
-        </main>
+    <main>
+        <section id="info">
+            <h1 class="section-heading">info</h1>
+            <p class="info-paragraph">I'm a university student, and a free-time Spigot plugin developer. I'm interested
+                in brainstorming ideas on my bicycle and coding weird things. Currently learning everything on
+                programming.</p>
+        </section>
 
-        <footer>
-            <p>Made with &#10084; by HSGamer</p>
-            <a href="https://www.facebook.com/huynhquang.tien.33" target="_blank"><img class="brand" src="./images/Facebook.png" alt="Facebook"/></a>
-            <a href="https://github.com/HSGamer" target="_blank"><img class="brand" src="./images/Github.png" alt="Github"/></a>
-        </footer>
-        
-        <script src="./scripts/navbarfix.js"></script>
-        <script src="./scripts/github.js"></script>
-        <script>
-            async function loadRepos() {
-                let projects = document.getElementById("project");
-                let repos = await fetchRepos("hsgamer");
+        <section id="badge">
+            <h1 class="section-heading">badge</h1>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hsgamer&theme=white&layout=compact&langs_count=6"
+                alt="languages" />
+            <img src="https://github-readme-stats.vercel.app/api?username=hsgamer&hide=issues&theme=white"
+                alt="stats" />
+        </section>
 
-                repos.sort((repo1, repo2) => new Date(repo2.updated_at) - new Date(repo1.updated_at));
-                repos.forEach(repo => {
-                    if (repo.fork || repo.archived) return;
+        <section id="project">
+            <h1 class="section-heading">project</h1>
+        </section>
+    </main>
 
-                    let anchor = document.createElement("a");
-                    anchor.href = repo.html_url;
+    <footer>
+        <p>Made with &#10084; by HSGamer</p>
+        <a href="https://www.facebook.com/huynhquang.tien.33" target="_blank"><img class="brand"
+                src="./images/Facebook.png" alt="Facebook" /></a>
+        <a href="https://github.com/HSGamer" target="_blank"><img class="brand" src="./images/Github.png"
+                alt="Github" /></a>
+    </footer>
 
-                    let project = document.createElement("div");
-                    project.classList.add("project");
+    <script src="./scripts/navbarfix.js"></script>
+    <script src="./scripts/github.js"></script>
+    <script>
+        async function loadRepos() {
+            let projects = document.getElementById("project");
+            let repos = await fetchRepos("hsgamer");
 
-                    let projectImage = document.createElement("img");
-                    projectImage.classList.add("project-image");
-                    projectImage.src = repo.owner.avatar_url;
-                    projectImage.alt = repo.name;
-                    project.appendChild(projectImage);
+            repos.sort((repo1, repo2) => new Date(repo2.updated_at) - new Date(repo1.updated_at));
+            repos.forEach(repo => {
+                if (repo.fork || repo.archived) return;
 
-                    let projectName = document.createElement("h2");
-                    projectName.innerHTML = repo.name;
-                    projectName.classList.add("project-name");
-                    project.appendChild(projectName);
+                let project = document.createElement("div");
+                project.classList.add("project");
 
-                    let projectDescrption = document.createElement("p");
-                    projectDescrption.innerHTML = "(&#9733;" + repo.stargazers_count + ") " + (repo.description || "No Description");
-                    projectDescrption.classList.add("project-description");
-                    project.appendChild(projectDescrption);
+                let projectImage = document.createElement("img");
+                projectImage.classList.add("project-image");
+                projectImage.src = repo.owner.avatar_url;
+                projectImage.alt = repo.name;
+                project.appendChild(projectImage);
 
-                    anchor.appendChild(project);
-                    projects.appendChild(anchor);
-                })
-            }
+                let projectName = document.createElement("h2");
+                projectName.innerHTML = repo.name;
+                projectName.classList.add("project-name");
+                project.appendChild(projectName);
 
-            loadRepos();
-        </script>
-    </body>
+                let projectDescrption = document.createElement("p");
+                projectDescrption.innerHTML = "(&#9733;" + repo.stargazers_count + ") " + (repo.description || "No Description");
+                projectDescrption.classList.add("project-description");
+                project.appendChild(projectDescrption);
+
+
+                project.onclick = event => {
+                    event.preventDefault();
+                    location.href = repo.html_url;
+                }
+                projects.appendChild(project);
+            })
+        }
+
+        loadRepos();
+    </script>
+</body>
+
 </html>
