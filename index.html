@@ -47,12 +47,12 @@
         <script>
             async function loadRepos() {
                 let projects = document.getElementById("project");
-                let repos = [];
-                repos.push(...await fetchRepos("https://api.github.com/users/hsgamer/repos"));
-                repos.push(...await fetchRepos("https://api.github.com/orgs/bettergui-mc/repos"));
+                let repos = await fetchRepos("hsgamer");
 
                 repos.sort((repo1, repo2) => new Date(repo2.updated_at) - new Date(repo1.updated_at));
                 repos.forEach(repo => {
+                    if (repo.fork || repo.archived) return;
+
                     let anchor = document.createElement("a");
                     anchor.href = repo.html_url;
 
