@@ -15,26 +15,23 @@
 
         <nav id="navbar">
             <a href="javascript:scroll('info');">info</a>
-            <a href="javascript:scroll('skills');">skill</a>
-            <a class="full" href="javascript:scroll('projects');">project</a>
+            <a href="javascript:scroll('badge');">badge</a>
+            <a class="full" href="javascript:scroll('project');">project</a>
         </nav>
 
         <main>
             <section id="info">
                 <h1 class="section-heading">info</h1>
-                <p class="info-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="info-paragraph">I'm a university student, and a free-time Spigot plugin developer. I'm interested in brainstorming ideas on my bicycle and coding weird things. Currently learning everything on programming.</p>
             </section>
 
-            <section id="skills">
-                <h1 class="section-heading">skill</h1>
-                <ul class="skill-list">
-                    <li>Skill 1</li>
-                    <li>Skill 2</li>
-                    <li>Skill 3</li>
-                </ul>
+            <section id="badge">
+                <h1 class="section-heading">badge</h1>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hsgamer&theme=white&layout=compact&langs_count=6" alt="languages" />
+                <img src="https://github-readme-stats.vercel.app/api?username=hsgamer&hide=issues&theme=white" />
             </section>
 
-            <section id="projects">
+            <section id="project">
                 <h1 class="section-heading">project</h1>
             </section>
         </main>
@@ -49,6 +46,7 @@
         <script src="./scripts/github.js"></script>
         <script>
             async function loadRepos() {
+                let projects = document.getElementById("project");
                 let repos = [];
                 repos.push(...await fetchRepos("https://api.github.com/users/hsgamer/repos"));
                 repos.push(...await fetchRepos("https://api.github.com/orgs/bettergui-mc/repos"));
@@ -64,6 +62,7 @@
                     let projectImage = document.createElement("img");
                     projectImage.classList.add("project-image");
                     projectImage.src = repo.owner.avatar_url;
+                    projectImage.alt = repo.full_name;
                     project.appendChild(projectImage);
 
                     let projectName = document.createElement("h2");
