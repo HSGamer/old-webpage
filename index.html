@@ -47,5 +47,41 @@
         
         <script src="./scripts/navbarfix.js"></script>
         <script src="./scripts/github.js"></script>
+        <script>
+            async function loadRepos() {
+                let repos = [];
+                repos.push(...await fetchRepos("https://api.github.com/users/hsgamer/repos"));
+                repos.push(...await fetchRepos("https://api.github.com/orgs/bettergui-mc/repos"));
+
+                repos.sort((repo1, repo2) => new Date(repo2.updated_at) - new Date(repo1.updated_at));
+                repos.forEach(repo => {
+                    let anchor = document.createElement("a");
+                    anchor.href = repo.html_url;
+
+                    let project = document.createElement("div");
+                    project.classList.add("project");
+
+                    let projectImage = document.createElement("img");
+                    projectImage.classList.add("project-image");
+                    projectImage.src = repo.owner.avatar_url;
+                    project.appendChild(projectImage);
+
+                    let projectName = document.createElement("h2");
+                    projectName.innerHTML = repo.full_name + " (" + repo.stargazers_count + ")";
+                    projectName.classList.add("project-name");
+                    project.appendChild(projectName);
+
+                    let projectDescrption = document.createElement("p");
+                    projectDescrption.innerHTML = repo.description || "No Description";
+                    projectDescrption.classList.add("project-description");
+                    project.appendChild(projectDescrption);
+
+                    anchor.appendChild(project);
+                    projects.appendChild(anchor);
+                })
+            }
+
+            loadRepos();
+        </script>
     </body>
 </html>

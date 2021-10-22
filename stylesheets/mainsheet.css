@@ -83,6 +83,11 @@ section {
     display: inline-block;
 }
 
+.project-image {
+	width: 200px;
+	height: 200px;
+}
+
 #projects a {
     text-decoration: none;
 }
