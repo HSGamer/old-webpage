@@ -62,16 +62,16 @@
                     let projectImage = document.createElement("img");
                     projectImage.classList.add("project-image");
                     projectImage.src = repo.owner.avatar_url;
-                    projectImage.alt = repo.full_name;
+                    projectImage.alt = repo.name;
                     project.appendChild(projectImage);
 
                     let projectName = document.createElement("h2");
-                    projectName.innerHTML = repo.full_name + " (" + repo.stargazers_count + ")";
+                    projectName.innerHTML = repo.name;
                     projectName.classList.add("project-name");
                     project.appendChild(projectName);
 
                     let projectDescrption = document.createElement("p");
-                    projectDescrption.innerHTML = repo.description || "No Description";
+                    projectDescrption.innerHTML = "(&#9733;" + repo.stargazers_count + ") " + (repo.description || "No Description");
                     projectDescrption.classList.add("project-description");
                     project.appendChild(projectDescrption);
 
