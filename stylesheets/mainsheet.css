@@ -84,6 +84,15 @@ section {
     display: inline-block;
 }
 
+.project-archived {
+    border: 1px solid red;
+}
+
+.project-archived .project-name {
+	text-decoration: line-through;
+	color: gray;
+}
+
 .project:hover {
 	cursor: pointer;
 	border: 1px solid lightgray;
