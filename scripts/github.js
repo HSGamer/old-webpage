@@ -2,7 +2,7 @@ async function fetchRepos(user, includeOrgRepos = true, params = {
     per_page: "100"
 }) {
     let repos = [];
-    let urls = [ new URL("https://api.github.com/users/" + user + "/repos") ];
+    let urls = [new URL("https://api.github.com/users/" + user + "/repos")];
     if (includeOrgRepos) {
         let orgUrl = "https://api.github.com/users/" + user + "/orgs";
         await fetch(orgUrl).then(data => data.json()).then(data => {
