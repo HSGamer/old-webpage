@@ -75,7 +75,7 @@
                 project.appendChild(projectName);
 
                 let projectDescrption = document.createElement("p");
-                projectDescrption.innerHTML = "(&#9733;" + repo.stargazers_count + ") " + (repo.description || "No Description");
+                projectDescrption.innerHTML = (repo.stargazers_count > 0 ? "(&#9733;" + repo.stargazers_count + ") " : "") + (repo.description || "No Description");
                 projectDescrption.classList.add("project-description");
                 project.appendChild(projectDescrption);
 
