@@ -52,7 +52,7 @@
     <script src="./scripts/navbarfix.js"></script>
     <script src="./scripts/github.js"></script>
     <script>
-        async function loadRepos() {
+        window.onload = async () => {
             let projects = document.getElementById("project");
             let repos = await fetchRepos("hsgamer");
 
@@ -88,8 +88,6 @@
                 projects.appendChild(project);
             })
         }
-
-        loadRepos();
     </script>
 </body>
 
