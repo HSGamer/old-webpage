@@ -66,7 +66,6 @@ section {
     margin: 10px;
     padding: 10px;
     font-family: monospace;
-	overflow-y: auto;
 }
 
 .section-heading {
@@ -137,6 +136,7 @@ footer a:hover .brand {
     .project {
         width: 100%;
         display: block;
+		overflow-y: auto;
     }
     
     .section-heading {
