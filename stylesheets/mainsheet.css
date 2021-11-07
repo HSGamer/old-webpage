@@ -66,6 +66,7 @@ section {
     margin: 10px;
     padding: 10px;
     font-family: monospace;
+	overflow-y: auto;
 }
 
 .section-heading {
