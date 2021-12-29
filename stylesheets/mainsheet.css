@@ -103,6 +103,12 @@ section {
 	height: 200px;
 }
 
+.project-description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 footer {
 	height: 50px;
 	background: rgb(0,0,0);
