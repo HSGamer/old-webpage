@@ -69,7 +69,16 @@
 
                 let projectImage = document.createElement("img");
                 projectImage.classList.add("project-image");
-                projectImage.src = repo.owner.avatar_url;
+                projectImage.src = "https://raw.githubusercontent.com/" + repo.full_name + "/" + repo.default_branch + "/.github/logo.svg";
+                var isPng = false;
+                projectImage.onerror = () => {
+                    if (isPng) {
+                        projectImage.src = repo.owner.avatar_url;
+                    } else {
+                        isPng = true;
+                        projectImage.src = "https://raw.githubusercontent.com/" + repo.full_name + "/" + repo.default_branch + "/.github/logo.png";
+                    }
+                }
                 projectImage.alt = repo.name;
                 project.appendChild(projectImage);
 
