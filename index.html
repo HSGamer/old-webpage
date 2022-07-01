@@ -61,11 +61,10 @@
 
             repos.sort((repo1, repo2) => new Date(repo2.pushed_at) - new Date(repo1.pushed_at));
             repos.forEach(repo => {
-                if (repo.fork) return;
-
                 let project = document.createElement("div");
                 project.classList.add("project");
                 if (repo.archived) project.classList.add("project-archived");
+                if (repo.fork) project.classList.add("project-fork");
 
                 let projectImage = document.createElement("img");
                 projectImage.classList.add("project-image");

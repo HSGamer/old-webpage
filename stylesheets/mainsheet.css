@@ -90,6 +90,10 @@ section {
     display: inline-block;
 }
 
+.project-fork {
+	display: none !important;
+}
+
 .project-archived {
     border: 1px solid red;
 }
